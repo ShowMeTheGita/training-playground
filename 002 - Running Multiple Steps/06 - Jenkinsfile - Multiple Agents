@@ -1,17 +1,21 @@
 pipeline {
     agent none 
     stages {
-        stage('Check Maven version') {
-            agent { docker 'maven:latest' } 
-            steps {
-                sh 'mvn --version'
-            }
-        }
-        stage('Check NPM version') {
-            agent { docker 'node:6.3' } 
-            steps {
-                sh 'npm --version'
-            }
-        }
+		stage('Check mvn and npm version in parallel') {
+			parallel {
+				stage('Check Maven version') {
+					agent { docker 'maven:latest' } 
+					steps {
+						sh 'mvn --version'
+					}
+				}
+				stage('Check NPM version') {
+					agent { docker 'node:6.3' } 
+					steps {
+						sh 'npm --version'
+					}
+				}
+			}
+		}
     }
 }
