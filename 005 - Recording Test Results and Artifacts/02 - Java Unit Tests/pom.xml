@@ -12,4 +12,14 @@
 			<version>5.5.2</version>
 		</dependency>
 	</dependencies>
+	
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>7</version>
+			</plugins
+		</plugins>
+	</build>
 </project>
