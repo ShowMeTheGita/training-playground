@@ -11,4 +11,7 @@ pipeline {
             }
         }
     }
+    post {
+    	emailext body: 'Pipeline run successful', recipientProviders: [guilherme.ferreira.silva@celfocus.com], subject: 'Pipeline run success'
+    }
 }
